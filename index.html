@@ -5,6 +5,30 @@
     <title>Conversor CelFar</title>
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="js/bugomatic.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+      #image-container {
+        height: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-image: url("imagenes/kitchen.jpg");
+        background-size: cover;
+      }
+
+      #opacity-ctrl {
+        height: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        opacity: 0.5;
+        background-color: black;
+      }
+
+      .container {
+        color: white;
+      }
+    </style>
 </head>
 <body>
 <script type="text/javascript">
@@ -67,16 +91,27 @@
   });
   
 </script>
-<h1>CelFar</h1>
-<p id="description">Conversor de temperaturas entre grados <a href="http://es.wikipedia.org/wiki/Grado_Celsius">Celcius</a> y <a href="http://es.wikipedia.org/wiki/Grado_Fahrenheit">Fahrenheit</a></p>
+<div id="image-container"></div>
+<div id="opacity-ctrl"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>CelFar</h1>
+      <p id="description">Conversor de temperaturas entre grados <a href="http://es.wikipedia.org/wiki/Grado_Celsius">Celcius</a> y <a href="http://es.wikipedia.org/wiki/Grado_Fahrenheit">Fahrenheit</a></p>
 
-<div id="converter">
-    <form id="converterform" action="">
-        <input id="input" class="input" type="text" />
-        <input type="submit" class="button"  value="convertir!"/>
-        <span id="output" class="output"></span>
-        <input id="input_type" type="hidden" value="celcius"/>
-    </form>
+      <div id="converter">
+          <form id="converterform" action="">
+              <div class="form-group">
+                <input id="input" class="form-control" type="text" />
+                <hr />
+                <input type="submit" class="btn btn-primary"  value="convertir!"/>
+                <span id="output" class="output"></span>
+                <input id="input_type" type="hidden" value="celcius"/>
+              </div>
+          </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 </body>
