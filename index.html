@@ -12,8 +12,7 @@
         position: absolute;
         left: 0;
         right: 0;
-        background-image: url("imagenes/kitchen.jpg");
-        background-size: cover;
+        background-image: url("imagenes/kitchen_1.jpg");
       }
 
       #opacity-ctrl {
@@ -27,6 +26,18 @@
 
       .container {
         color: white;
+      }
+
+      .output {
+        margin-top: 5px;
+      }
+
+      a {
+        color: #59b2ff;
+      }
+
+      a:hover {
+        color: #0087ff;
       }
     </style>
 </head>
@@ -56,6 +67,7 @@
     var valid = true;
     $(validators).each(function() {
         if (!this.valid(value)) {
+            $("#output").addClass("alert alert-danger");
             $("#output").append(this.error + "</br>");
             return valid = false;
         }
@@ -69,11 +81,13 @@
     var converter = converters[$("#input_type")[0].value];
     var valid = validate(validators, input.value);
     if (valid) {
+        $("#output").addClass("alert alert-success");
         $("#output").append(converter(input.value));
     }
   }
 
   function reset_output() {
+    $("#output").removeClass("alert alert-danger alert-success");
     $("#output").empty().append("Pendiente de cálculo...");
   }
 
@@ -105,7 +119,7 @@
                 <input id="input" class="form-control" type="text" />
                 <hr />
                 <input type="submit" class="btn btn-primary"  value="convertir!"/>
-                <span id="output" class="output"></span>
+                <p id="output" class="output"></p>
                 <input id="input_type" type="hidden" value="celcius"/>
               </div>
           </form>
